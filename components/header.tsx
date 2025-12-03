@@ -12,8 +12,9 @@ export function Header() {
   return (
     <header className="w-full bg-black/70 border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        <Link href="/" className="text-lg font-semibold text-white">
-          MovieFlix
+        <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-white hover:text-[#c69d6f] transition-colors">
+          <span className="text-2xl">📺</span>
+          <span>MovieFlix</span>
         </Link>
 
         <nav className="flex items-center gap-4">

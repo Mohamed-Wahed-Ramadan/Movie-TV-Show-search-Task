@@ -5,7 +5,10 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useFavorites } from "@/hooks/use-favorites"
 import { MovieCard } from "@/components/cards/movie-card"
+import type { Metadata } from "next"
 
+// Note: Metadata export is not used with "use client", but we document SEO intent
+// The root layout metadata applies to this page as well
 export default function FavoritesPage() {
   const { favorites, clear } = useFavorites()
   const router = useRouter()

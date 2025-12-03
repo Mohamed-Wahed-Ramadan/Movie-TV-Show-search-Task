@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MovieFlix - Movie and TV Show Search</title>
+    <link>https://movieflix.wahed.app</link>
+    <description>Discover and search thousands of movies and TV shows with detailed information, ratings, and reviews</description>
+    <language>en-us</language>
+    <atom:link href="https://movieflix.wahed.app/feed.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Welcome to MovieFlix</title>
+      <link>https://movieflix.wahed.app</link>
+      <guid>movieflix-home</guid>
+      <pubDate>Wed, 03 Dec 2025 00:00:00 GMT</pubDate>
+      <description>Start searching millions of movies and TV shows on MovieFlix. Get instant access to detailed information, ratings, release dates, and more.</description>
+      <category>Movies</category>
+    </item>
+
+    <item>
+      <title>Your Favorite Movies Collection</title>
+      <link>https://movieflix.wahed.app/favorites</link>
+      <guid>movieflix-favorites</guid>
+      <pubDate>Wed, 03 Dec 2025 00:00:00 GMT</pubDate>
+      <description>Keep track of your favorite movies and TV shows. Create your personal collection and access them anytime.</description>
+      <category>Entertainment</category>
+    </item>
+  </channel>
+</rss>
