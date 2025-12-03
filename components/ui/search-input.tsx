@@ -22,7 +22,7 @@ export function SearchInput({ value, onChange, placeholder = "Search...", disabl
 
   return (
     <div className="relative w-full">
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg">{disabled ? "⏳" : "🔍"}</div>
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[color:var(--color-muted-foreground)] text-lg">{disabled ? "⏳" : "🔍"}</div>
       <input
         type="text"
         value={value}
@@ -30,7 +30,8 @@ export function SearchInput({ value, onChange, placeholder = "Search...", disabl
         onKeyDown={handleKeyDown}
         placeholder={placeholder}
         disabled={disabled}
-        className="w-full pl-12 pr-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full pl-12 pr-4 py-3 rounded-lg border border-[color:var(--color-border)] text-[color:var(--color-foreground)] placeholder-[color:var(--color-muted-foreground)] focus:outline-none focus:border-[color:var(--color-primary)] focus:ring-1 focus:ring-[color:var(--color-primary)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        style={{ background: 'linear-gradient(to right, var(--color-background) 0%, var(--color-background) 50%, var(--color-primary) 100%)' }}
       />
     </div>
   )

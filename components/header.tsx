@@ -10,9 +10,12 @@ export function Header() {
   const active = pathname === "/favorites"
 
   return (
-    <header className="w-full bg-black/70 border-b border-gray-800">
+    <header className="w-full bg-[color:var(--color-sidebar)] border-b border-[color:var(--color-sidebar-border)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-white hover:text-[#c69d6f] transition-colors">
+        <Link
+          href="/"
+          className="flex items-center gap-2 text-lg font-semibold text-[color:var(--color-primary)] hover:opacity-90 transition-colors"
+        >
           <span className="text-2xl">📺</span>
           <span>MovieFlix</span>
         </Link>
@@ -22,10 +25,15 @@ export function Header() {
             href="/favorites"
             className="text-sm inline-flex items-center gap-2"
             aria-current={active ? "page" : undefined}
-            style={{ color: active ? "#c69d6f" : undefined }}
           >
-            <span className="text-sm">Favorites</span>
-            <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${active ? "bg-[#c69d6f]/20 text-[#c69d6f]" : "bg-white/5 text-gray-200"}`}>
+            <span className="text-sm text-[color:var(--color-sidebar-foreground)]">Favorites</span>
+            <span
+              className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${
+                active
+                  ? "bg-[color:var(--color-primary)]/20 text-[color:var(--color-primary)]"
+                  : "bg-[color:var(--color-sidebar-border)] text-[color:var(--color-sidebar-foreground)]"
+              }`}
+            >
               {favorites.length}
             </span>
           </Link>

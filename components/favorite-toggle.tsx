@@ -22,7 +22,7 @@ export function FavoriteToggle({ movie, className }: Props) {
       }}
       className={`inline-flex items-center justify-center rounded-full p-1 transition-colors ${className || ""}`}
       title={fav ? "Remove from favorites" : "Add to favorites"}
-      style={{ color: fav ? "#c69d6f" : "#e5e7eb" }}
+      style={{ color: fav ? "var(--color-destructive)" : "#ffffff" }}
     >
       {fav ? (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

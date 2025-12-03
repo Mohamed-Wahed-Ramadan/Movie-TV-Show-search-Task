@@ -49,7 +49,7 @@ export function SearchPage() {
   })
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[color:var(--color-background)] text-[color:var(--color-foreground)]">
       <SearchHeader onSearch={handleSearch} isLoading={isLoading} />
 
       {query && (
@@ -69,8 +69,8 @@ export function SearchPage() {
       {!query && (
         <div className="flex items-center justify-center min-h-[60vh] px-4">
           <div className="text-center">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Discover Movies & TV Shows</h2>
-            <p className="text-lg text-gray-400 mb-8">Search for your favorite movies and TV shows to get started</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-[color:var(--color-foreground)] mb-4">Discover Movies & TV Shows</h2>
+            <p className="text-lg text-[color:var(--color-muted-foreground)] mb-8">Search for your favorite movies and TV shows to get started</p>
           </div>
         </div>
       )}

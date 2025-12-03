@@ -15,8 +15,8 @@ export function ResultsList({ results, isLoading, error, onMovieSelect }: Result
   if (error) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-red-900 bg-opacity-20 border border-red-800 rounded-lg p-6">
-          <p className="text-red-400 font-semibold">{error}</p>
+        <div className="bg-[color:var(--color-destructive)]/10 border border-[color:var(--color-destructive)] rounded-lg p-6">
+          <p className="text-[color:var(--color-destructive)] font-semibold">{error}</p>
         </div>
       </div>
     )
@@ -38,7 +38,7 @@ export function ResultsList({ results, isLoading, error, onMovieSelect }: Result
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center">
-          <p className="text-gray-400 text-lg">No results found. Try a different search.</p>
+          <p className="text-[color:var(--color-muted-foreground)] text-lg">No results found. Try a different search.</p>
         </div>
       </div>
     )

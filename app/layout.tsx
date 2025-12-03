@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import Link from "next/link"
 import "./globals.css"
 import { Header } from "@/components/header"
+import { BackToTop } from "@/components/ui/back-to-top"
 import { StructuredData } from "@/components/structured-data"
 const geist = Geist({ subsets: ["latin"] })
 const geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -79,6 +80,7 @@ export default function RootLayout({
       <body className={`${geist.className} antialiased`}>
         <Header />
         {children}
+        <BackToTop />
       </body>
     </html>
   )
