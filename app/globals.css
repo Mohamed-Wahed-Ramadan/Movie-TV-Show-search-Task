@@ -13,6 +13,8 @@
   --popover-foreground: #000000;
   /* Keep your accent/primary color */
   --primary: #c69d6f;
+  /* RGB variant for gradients and alpha control */
+  --primary-rgb: 198,157,111;
   --primary-foreground: #ffffff;
   --secondary: #ffffff;
   --secondary-foreground: #000000;

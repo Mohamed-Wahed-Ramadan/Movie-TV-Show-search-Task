@@ -43,23 +43,28 @@ export function MovieCard({ movie, onClick }: MovieCardProps) {
             <FavoriteToggle movie={movie} />
           </div>
 
-          {/* Overlay on Hover */}
+          {/* Overlay on Hover: vertical gradient — dark at bottom, transparent at top */}
           <div
-            className={`absolute inset-0 bg-[color:var(--color-primary)] bg-opacity-90 flex flex-col items-center justify-center p-4 transition-opacity duration-200 ${
+            className={`absolute inset-0 flex flex-col items-center justify-center p-4 transition-opacity duration-200 pointer-events-none ${
               isHovered ? "opacity-100" : "opacity-0"
             }`}
+            style={{
+              background: 'linear-gradient(to top, rgba(var(--primary-rgb), 0.95) 0%, rgba(var(--primary-rgb), 0.6) 40%, rgba(var(--primary-rgb), 0.25) 60%, rgba(var(--primary-rgb), 0) 100%)',
+            }}
           >
-            <p className="text-[color:var(--color-primary-foreground)] font-semibold text-sm line-clamp-2 mb-3 text-center">{movie.title}</p>
-            <p className="text-[color:var(--color-primary-foreground)] text-xs mb-4">{movie.year}</p>
-            <button
-              className="px-4 py-2 bg-[color:var(--color-primary-foreground)] text-[color:var(--color-primary)] font-semibold rounded-lg hover:opacity-90 transition-colors"
-              onClick={(e) => {
-                e.stopPropagation()
-                handleClick()
-              }}
-            >
-              View Details
-            </button>
+            <div className="pointer-events-auto w-full flex flex-col items-center">
+              <p className="text-[color:var(--color-primary-foreground)] font-semibold text-sm line-clamp-2 mb-3 text-center">{movie.title}</p>
+              <p className="text-[color:var(--color-primary-foreground)] text-xs mb-4">{movie.year}</p>
+              <button
+                className="px-4 py-2 bg-[color:var(--color-primary-foreground)] text-[color:var(--color-primary)] font-semibold rounded-lg hover:opacity-90 transition-colors"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleClick()
+                }}
+              >
+                View Details
+              </button>
+            </div>
           </div>
         </div>
 

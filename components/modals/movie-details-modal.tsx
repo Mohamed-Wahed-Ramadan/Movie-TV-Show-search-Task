@@ -39,8 +39,12 @@ export function MovieDetailsModal({ movie, isOpen, onClose }: MovieDetailsModalP
 
   return (
     <>
-      {/* Backdrop: when modal open, show primary color background */}
-      <div onClick={onClose} className="fixed inset-0 z-40 animate-fade-in" style={{ background: 'var(--color-primary)' }} />
+      {/* Backdrop: translucent primary-tinted background with slight blur */}
+      <div
+        onClick={onClose}
+        className="fixed inset-0 z-40 animate-fade-in backdrop-blur-sm"
+        style={{ background: 'rgba(var(--primary-rgb), 0.18)' }}
+      />
 
       {/* Modal */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-0 animate-slide-up">
