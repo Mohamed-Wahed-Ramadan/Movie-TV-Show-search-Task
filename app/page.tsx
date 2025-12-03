@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { SearchPage } from "@/components/pages/search-page"
 
 export const metadata: Metadata = {
-  title: "MovieFlix - Search Movies & TV Shows | Free Movie Database",
+  title: "MovieFlix",
   description: "Discover and search thousands of movies and TV shows instantly. Get detailed information, ratings, release dates, and more. Your ultimate movie and TV series search engine.",
   keywords: ["movie search", "TV show search", "film database", "entertainment search", "movie finder", "watch movies", "TV series database"],
   openGraph: {
