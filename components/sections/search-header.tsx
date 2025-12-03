@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect, useRef } from "react"
 import { SearchInput } from "@/components/ui/search-input"
 
 interface SearchHeaderProps {
@@ -10,18 +10,36 @@ interface SearchHeaderProps {
 
 export function SearchHeader({ onSearch, isLoading }: SearchHeaderProps) {
   const [query, setQuery] = useState("")
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
-  const handleSearch = useCallback(
-    (value: string) => {
-      setQuery(value)
-      // Debounce search
-      const timer = setTimeout(() => {
-        onSearch(value)
-      }, 300)
-      return () => clearTimeout(timer)
-    },
-    [onSearch],
-  )
+  // Debounce logic with useEffect
+  useEffect(() => {
+    // Clear previous timer
+    if (timerRef.current) {
+      clearTimeout(timerRef.current)
+    }
+
+    // If query is empty, don't search
+    if (!query.trim()) {
+      return
+    }
+
+    // Debounce for 800ms - only search after user stops typing
+    timerRef.current = setTimeout(() => {
+      onSearch(query)
+    }, 800)
+
+    // Cleanup on unmount or when query changes
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+    }
+  }, [query, onSearch])
+
+  const handleSearch = useCallback((value: string) => {
+    setQuery(value)
+  }, [])
 
   return (
     <div className="bg-gradient-to-b from-black to-gray-900 border-b border-gray-800 sticky top-0 z-40">

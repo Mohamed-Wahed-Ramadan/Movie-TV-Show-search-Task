@@ -25,7 +25,7 @@ export function SearchFilters({ mediaType, onMediaTypeChange, sortBy, onSortChan
                   key={type}
                   onClick={() => onMediaTypeChange(type)}
                   className={`px-4 py-2 rounded-lg transition-all ${
-                    mediaType === type ? "bg-gold text-black font-semibold" : "bg-gray-800 text-white hover:bg-gray-700"
+                    mediaType === type ? "bg-[#c69d6f] text-black font-semibold" : "bg-gray-800 text-white hover:bg-gray-700"
                   }`}
                 >
                   {type === "all" ? "All" : type === "movie" ? "Movies" : "TV Series"}
@@ -37,7 +37,7 @@ export function SearchFilters({ mediaType, onMediaTypeChange, sortBy, onSortChan
             <select
               value={sortBy}
               onChange={(e) => onSortChange(e.target.value as any)}
-              className="px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 hover:border-gold transition-colors cursor-pointer"
+              className={`px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 transition-colors cursor-pointer ${sortBy === 'year-desc' ? 'border-[#c69d6f] text-[#c69d6f]' : 'hover:border-gold'}` }
             >
               <option value="year-desc">Newest First</option>
               <option value="year-asc">Oldest First</option>
