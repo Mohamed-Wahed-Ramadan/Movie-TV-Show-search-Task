@@ -26,7 +26,6 @@ export function useMovieSearch() {
         setError("No results found. Try another search.")
       }
     } catch (err) {
-      console.error("[v0] Search error:", err)
       setError("Failed to search. Please try again.")
     } finally {
       setIsLoading(false)

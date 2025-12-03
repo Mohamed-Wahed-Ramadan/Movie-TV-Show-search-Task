@@ -7,15 +7,15 @@ const geist = Geist({ subsets: ["latin"] })
 const geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "MovieFlix - Search Movies & TV Shows",
+  title: "MovieFlix",
   description: "Discover and search thousands of movies and TV shows. Get details, ratings, and more with MovieFlix.",
   keywords: ["movies", "tv shows", "search", "streaming", "entertainment"],
   openGraph: {
-    title: "MovieFlix - Search Movies & TV Shows",
+    title: "MovieFlix",
     description: "Discover and search thousands of movies and TV shows",
     type: "website",
   },
-    generator: 'v0.app'
+    generator: 'wahed.app'
 }
 
 export const viewport: Viewport = {
