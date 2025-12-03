@@ -19,8 +19,8 @@ User-agent: DuckDuckBot
 Allow: /
 
 # Sitemaps
-Sitemap: https://movieflix.wahed.app/sitemap.xml
-Sitemap: https://movieflix.wahed.app/sitemap-movies.xml
+Sitemap: https://movieflix-mwk.netlify.app/sitemap.xml
+Sitemap: https://movieflix-mwk.netlify.app/sitemap-movies.xml
 
 # Crawl delay (in seconds)
 Crawl-delay: 1

@@ -7,7 +7,6 @@ const STORAGE_KEY = "movieflix:favorites"
 
 type Listener = (items: Movie[]) => void
 
-// Simple global store so multiple hook instances stay in sync
 const store = (() => {
   let state: Movie[] = []
   const listeners = new Set<Listener>()

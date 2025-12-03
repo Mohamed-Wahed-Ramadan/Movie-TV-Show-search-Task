@@ -9,10 +9,10 @@ export const metadata: Metadata = {
     title: "MovieFlix - Search Movies & TV Shows",
     description: "Discover thousands of movies and TV shows with detailed information and ratings",
     type: "website",
-    url: "https://movieflix.wahed.app",
+    url: "https://movieflix-mwk.netlify.app/",
   },
   alternates: {
-    canonical: "https://movieflix.wahed.app",
+    canonical: "https://movieflix-mwk.netlify.app/",
   },
 }
 

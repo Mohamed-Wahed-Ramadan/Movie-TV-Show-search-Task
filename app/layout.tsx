@@ -12,16 +12,16 @@ export const metadata: Metadata = {
   title: "MovieFlix - Search Movies & TV Shows | Free Movie Database",
   description: "Discover and search thousands of movies and TV shows. Get details, ratings, reviews, and more with MovieFlix. Find your favorite movies and series instantly.",
   keywords: ["movies", "tv shows", "search", "streaming", "entertainment", "film database", "tv series", "watch movies online", "movie search engine"],
-  metadataBase: new URL("https://movieflix.wahed.app"),
+  metadataBase: new URL("https://movieflix-mwk.netlify.app/"),
   openGraph: {
     title: "MovieFlix - Search Movies & TV Shows | Free Movie Database",
     description: "Discover and search thousands of movies and TV shows. Get details, ratings, reviews, and more with MovieFlix.",
     type: "website",
-    url: "https://movieflix.wahed.app",
+    url: "https://movieflix-mwk.netlify.app/",
     siteName: "MovieFlix",
     images: [
       {
-        url: "https://movieflix.wahed.app/og-image.png",
+        url: "https://movieflix-mwk.netlify.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "MovieFlix - Movie and TV Show Search Engine",
@@ -32,10 +32,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MovieFlix - Search Movies & TV Shows",
     description: "Discover thousands of movies and TV shows with detailed information",
-    images: ["https://movieflix.wahed.app/twitter-image.png"],
+    images: ["https://movieflix-mwk.netlify.app/twitter-image.png"],
   },
   alternates: {
-    canonical: "https://movieflix.wahed.app",
+    canonical: "https://movieflix-mwk.netlify.app/",
   },
   robots: {
     index: true,

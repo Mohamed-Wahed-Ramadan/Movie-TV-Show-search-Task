@@ -5,7 +5,7 @@ export function StructuredData() {
     name: "MovieFlix",
     description:
       "Search and discover thousands of movies and TV shows with detailed information, ratings, and reviews",
-    url: "https://movieflix.wahed.app",
+    url: "https://movieflix-mwk.netlify.app/",
     applicationCategory: "MultimediaApplication",
     aggregateRating: {
       "@type": "AggregateRating",

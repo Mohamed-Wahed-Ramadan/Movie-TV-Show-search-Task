@@ -15,7 +15,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark')
   const [mounted, setMounted] = useState(false)
 
-  // Initialize theme from localStorage or system preference
   useEffect(() => {
     const storedTheme = localStorage.getItem('movieflix-theme') as Theme | null
     let initialTheme: Theme = 'dark' // Default
