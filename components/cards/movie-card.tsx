@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import type { Movie } from "@/types/movie"
+import { FavoriteToggle } from "@/components/favorite-toggle"
 
 interface MovieCardProps {
   movie: Movie
@@ -36,6 +37,11 @@ export function MovieCard({ movie, onClick }: MovieCardProps) {
               <span className="text-center px-4">No Image</span>
             </div>
           )}
+
+          {/* Favorite toggle top-right */}
+          <div className="absolute top-2 right-2 z-10">
+            <FavoriteToggle movie={movie} />
+          </div>
 
           {/* Overlay on Hover */}
           <div
