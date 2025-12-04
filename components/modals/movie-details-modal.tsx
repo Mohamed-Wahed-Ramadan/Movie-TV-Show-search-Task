@@ -1,9 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import Link from "next/link"
-import type { Movie, MovieDetails } from "@/types/movie"
-import { getMovieDetails } from "@/lib/movie-api"
+import type { Movie } from "@/types/movie"
+import { useMovieDetails } from "@/hooks/use-movie-details"
 
 interface MovieDetailsModalProps {
   movie: Movie
@@ -12,28 +11,7 @@ interface MovieDetailsModalProps {
 }
 
 export function MovieDetailsModal({ movie, isOpen, onClose }: MovieDetailsModalProps) {
-  const [details, setDetails] = useState<MovieDetails | null>(null)
-  const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    if (isOpen && movie.imdbId) {
-      const fetchDetails = async () => {
-        try {
-          setIsLoading(true)
-          const data = await getMovieDetails(movie.imdbId)
-          if (data && data.Response === "True") {
-            setDetails(data)
-          }
-        } catch (err) {
-          console.error("Failed to fetch details:", err)
-        } finally {
-          setIsLoading(false)
-        }
-      }
-
-      fetchDetails()
-    }
-  }, [isOpen, movie.imdbId])
+  const { details, isLoading, error } = useMovieDetails(movie.imdbId, isOpen)
 
   if (!isOpen) return null
 
@@ -59,6 +37,8 @@ export function MovieDetailsModal({ movie, isOpen, onClose }: MovieDetailsModalP
 
           {isLoading ? (
             <div className="p-8 text-center text-[color:var(--color-muted-foreground)]">Loading...</div>
+          ) : error ? (
+            <div className="p-8 text-center text-[color:var(--color-destructive)]">{error}</div>
           ) : details ? (
             <div className="p-6 md:p-8">
               <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -72,7 +52,9 @@ export function MovieDetailsModal({ movie, isOpen, onClose }: MovieDetailsModalP
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-[color:var(--color-muted-foreground)]">No Image</div>
+                      <div className="w-full h-full flex items-center justify-center text-[color:var(--color-muted-foreground)]">
+                        No Image
+                      </div>
                     )}
                   </div>
                 </div>
@@ -135,9 +117,7 @@ export function MovieDetailsModal({ movie, isOpen, onClose }: MovieDetailsModalP
                 <p className="text-[color:var(--color-muted-foreground)] text-sm leading-relaxed">{details.Plot}</p>
               </div>
             </div>
-          ) : (
-            <div className="p-8 text-center text-[color:var(--color-destructive)]">Failed to load details</div>
-          )}
+          ) : null}
         </div>
       </div>
     </>

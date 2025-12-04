@@ -1,7 +1,4 @@
-"use client"
-
-import { useState, useCallback, useEffect, useRef } from "react"
-import { SearchInput } from "@/components/ui/search-input"
+import { SearchInputClient } from "@/components/ui/search-input-client"
 
 interface SearchHeaderProps {
   onSearch: (query: string) => void
@@ -9,38 +6,6 @@ interface SearchHeaderProps {
 }
 
 export function SearchHeader({ onSearch, isLoading }: SearchHeaderProps) {
-  const [query, setQuery] = useState("")
-  const timerRef = useRef<NodeJS.Timeout | null>(null)
-
-  // Debounce logic with useEffect
-  useEffect(() => {
-    // Clear previous timer
-    if (timerRef.current) {
-      clearTimeout(timerRef.current)
-    }
-
-    // If query is empty, don't search
-    if (!query.trim()) {
-      return
-    }
-
-    // Debounce for 800ms - only search after user stops typing
-    timerRef.current = setTimeout(() => {
-      onSearch(query)
-    }, 800)
-
-    // Cleanup on unmount or when query changes
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current)
-      }
-    }
-  }, [query, onSearch])
-
-  const handleSearch = useCallback((value: string) => {
-    setQuery(value)
-  }, [])
-
   return (
     <>
       <div
@@ -56,15 +21,13 @@ export function SearchHeader({ onSearch, isLoading }: SearchHeaderProps) {
           </div>
           <div className="flex items-center justify-between gap-4">
             <div className="flex-1">
-              <SearchInput
-                value={query}
-                onChange={handleSearch}
-                placeholder="Search for a movie or TV show..."
-                disabled={isLoading}
-              />
+              <SearchInputClient onSearch={onSearch} isLoading={isLoading} />
             </div>
             <div className="ml-4">
-              <a href="/favorites" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[color:var(--color-primary)] text-[color:var(--color-primary-foreground)] font-semibold hover:opacity-90 transition-colors">
+              <a
+                href="/favorites"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[color:var(--color-primary)] text-[color:var(--color-primary-foreground)] font-semibold hover:opacity-90 transition-colors"
+              >
                 ❤️ Favorites
               </a>
             </div>

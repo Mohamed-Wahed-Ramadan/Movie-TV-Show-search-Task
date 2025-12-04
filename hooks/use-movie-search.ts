@@ -19,14 +19,17 @@ export function useMovieSearch() {
     try {
       setIsLoading(true)
       setError(null)
-      const data = await searchAll(query)
-      setResults(data)
+      const res = await searchAll(query)
+      // searchAll returns { items, totalPages, totalResults, currentPage }
+      setResults(res.items || [])
 
-      if (data.length === 0) {
+      if ((res.items || []).length === 0) {
         setError("No results found. Try another search.")
       }
     } catch (err) {
-      setError("Failed to search. Please try again.")
+      const msg = err instanceof Error ? err.message : String(err)
+      console.error("Search hook error:", msg)
+      setError(`Search failed: ${msg}`)
     } finally {
       setIsLoading(false)
     }

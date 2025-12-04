@@ -65,7 +65,14 @@ export function useFavorites() {
   useEffect(() => {
     if (typeof window === "undefined") return
     const unsub = store.subscribe(setFavorites)
-    return unsub
+    return () => {
+      // call unsubscribe and ignore its boolean return
+      try {
+        unsub()
+      } catch (_) {
+        // ignore
+      }
+    }
   }, [])
 
   const add = useCallback((movie: Movie) => {
